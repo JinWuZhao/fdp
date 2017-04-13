@@ -1,4 +1,4 @@
-package simpleudp
+package fdp
 
 import (
 	"errors"
@@ -54,6 +54,9 @@ func (b *pktBuffer) Get(index int32) (packet, error) {
 	ringIndex := head + index
 	if ringIndex >= b.cap {
 		ringIndex -= b.cap
+	}
+	if ringIndex >= b.cap {
+		return nil, errors.New("index out of range")
 	}
 	pkt := b.ring[ringIndex]
 	if pkt == nil {
