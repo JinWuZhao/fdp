@@ -1,4 +1,4 @@
-package simpleudp
+package fdp
 
 import (
 	"errors"

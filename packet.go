@@ -1,4 +1,4 @@
-package simpleudp
+package fdp
 
 type packet interface {
 	Marshal() ([]byte, error)
